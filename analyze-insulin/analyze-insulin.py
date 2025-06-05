@@ -1,6 +1,7 @@
 import re
 
 def get_cleaned_seq(source_file_name, target_file_name, length_of_cleaned_seq):
+    """Reads in sequence from source file, cleans it into a sequence of lower letters without whitespaces, then writes it to taget file."""
     # Reads in unprocessed protein sequence from file
     with open(source_file_name) as input_file:
         preproinsulin_seq = input_file.read()
@@ -19,6 +20,7 @@ def get_cleaned_seq(source_file_name, target_file_name, length_of_cleaned_seq):
             print(f"Wrote cleaned sequence to {target_file_name}")
 
 def  extract_sig_peptide_sequence(source_seq_file_name, target_seq_file_name, length_of_sig_sequence):
+    """Extracts the sequence of the signal peptide from the sequence contained in the source file, writes result to target file."""
     # Reads in cleaned sequence from file
     with open(source_seq_file_name) as source_file:
         sequence = source_file.read()
