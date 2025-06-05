@@ -15,3 +15,4 @@ with open(input_file_name) as input_file:
     # Writing cleaned sequence to file
     with open(cleaned_seq_file_name, "w") as cleaned_seq_file:
         cleaned_seq_file.write(cleaned_seq)
+        print(f"Wrote cleaned sequence to {cleaned_seq_file_name}")
