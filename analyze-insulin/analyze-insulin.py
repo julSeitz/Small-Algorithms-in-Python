@@ -1,8 +1,8 @@
 import re
 
-def get_cleaned_seq(input_file_name, cleaned_seq_file_name, length_of_cleaned_seq):
+def get_cleaned_seq(source_file_name, target_file_name, length_of_cleaned_seq):
     # Reads in unprocessed protein sequence from file
-    with open(input_file_name) as input_file:
+    with open(source_file_name) as input_file:
         preproinsulin_seq = input_file.read()
         result = re.findall(r"(([a-z]+\s*)+\n)", preproinsulin_seq)
         # Converting sequence into single string of lower case letters
@@ -14,9 +14,9 @@ def get_cleaned_seq(input_file_name, cleaned_seq_file_name, length_of_cleaned_se
             print("Cleaned sequence does not match projected length")
             return
         # Writing cleaned sequence to file
-        with open(cleaned_seq_file_name, "w") as cleaned_seq_file:
+        with open(target_file_name, "w") as cleaned_seq_file:
             cleaned_seq_file.write(cleaned_seq)
-            print(f"Wrote cleaned sequence to {cleaned_seq_file_name}")
+            print(f"Wrote cleaned sequence to {target_file_name}")
 
 def  extract_sig_peptide_sequence(source_seq_file_name, target_seq_file_name, length_of_sig_sequence):
     # Reads in cleaned sequence from file
