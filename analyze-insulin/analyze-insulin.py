@@ -1,8 +1,11 @@
 import re
 
+input_file_name = "analyze-insulin/preproinsulin-seq.txt"
+cleaned_seq_file_name = "analyze-insulin/preproinsulin-seq-clean.txt"
+
 # Reads in unprocessed protein sequence from file
-with open("preproinsulin-seq.txt") as preproinsulin_seq_file:
-    preproinsulin_seq = preproinsulin_seq_file.read()
+with open(input_file_name) as input_file:
+    preproinsulin_seq = input_file.read()
     result = re.findall(r"(([a-z]+\s*)+\n)", preproinsulin_seq)
     # Converting sequence into single string of lower case letters
     cleaned_seq = ""
@@ -10,5 +13,5 @@ with open("preproinsulin-seq.txt") as preproinsulin_seq_file:
         cleaned_seq = cleaned_seq + result[x][0].strip()
     cleaned_seq = cleaned_seq.replace(" ", "")
     # Writing cleaned sequence to file
-    with open("preproinsulin-seq-clean.txt", "w") as preproinsulin_seq_clean_file:
-        preproinsulin_seq_clean_file.write(cleaned_seq)
+    with open(cleaned_seq_file_name, "w") as cleaned_seq_file:
+        cleaned_seq_file.write(cleaned_seq)
