@@ -47,3 +47,9 @@ length_of_sig_seq = 24
 get_cleaned_seq(input_file_name, cleaned_seq_file_name, length_of_cleaned_seq)
 # Extracting signal peptide sequence
 extract_peptide_sequence(cleaned_seq_file_name, ls_insulin_file_name, start_of_sig_peptide_seq, length_of_sig_seq)
+
+b_insulin_file_name = "analyze-insulin/binsulin-seq-clean.txt"
+start_of_b_peptide_seq = 24
+length_of_b_seq = 30
+# Exctracting sequence of B insulin
+extract_peptide_sequence(cleaned_seq_file_name, b_insulin_file_name, start_of_b_peptide_seq, length_of_b_seq)
