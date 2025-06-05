@@ -18,8 +18,27 @@ def get_cleaned_seq(input_file_name, cleaned_seq_file_name, length_of_cleaned_se
             cleaned_seq_file.write(cleaned_seq)
             print(f"Wrote cleaned sequence to {cleaned_seq_file_name}")
 
+def  extract_sig_peptide_sequence(source_seq_file_name, target_seq_file_name, length_of_sig_sequence):
+    # Reads in cleaned sequence from file
+    with open(source_seq_file_name) as source_file:
+        sequence = source_file.read()
+        # Extracts sequence of signal peptide
+        sig_peptide_sequence = sequence[:length_of_sig_sequence]
+        # Checks if extracted sequence matches projected length
+        if len(sig_peptide_sequence) != length_of_sig_sequence:
+            print("Signal peptide sequence length does not match its projected length")
+            return
+        # Writes sequence of signal peptide to file
+        with open(target_seq_file_name, "w") as target_file:
+            target_file.write(sig_peptide_sequence)
+            print(f"Wrote signal peptide sequence to {target_seq_file_name}")
+
 input_file_name = "analyze-insulin/preproinsulin-seq.txt"
 cleaned_seq_file_name = "analyze-insulin/preproinsulin-seq-clean.txt"
 length_of_cleaned_seq = 110
 
+ls_insulin_file_name="analyze-insulin/lsinsulin-seq-clean.txt"
+length_of_sig_sequence=24
+
 get_cleaned_seq(input_file_name, cleaned_seq_file_name, length_of_cleaned_seq)
+extract_sig_peptide_sequence(cleaned_seq_file_name, ls_insulin_file_name, length_of_sig_sequence)

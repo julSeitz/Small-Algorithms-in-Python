@@ -1,2 +1,2 @@
 *.code-workspace
-analyze-insulin/preproinsulin-seq-clean.txt
+analyze-insulin/*-seq-clean.txt
