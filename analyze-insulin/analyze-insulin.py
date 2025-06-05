@@ -19,21 +19,22 @@ def get_cleaned_seq(source_file_name, target_file_name, length_of_cleaned_seq):
             cleaned_seq_file.write(cleaned_seq)
             print(f"Wrote cleaned sequence to {target_file_name}")
 
-def  extract_peptide_sequence(source_seq_file_name, target_seq_file_name, start_of_sequence, end_of_sequence):
+def  extract_peptide_sequence(source_file_name, target_file_name, start_of_seq, length_of_seq):
     """Extracts the sequence of the desired peptide from the sequence contained in the source file, writes result to target file."""
     # Reads in cleaned sequence from file
-    with open(source_seq_file_name) as source_file:
+    with open(source_file_name) as source_file:
         sequence = source_file.read()
         # Extracts sequence of target peptide
-        peptide_sequence = sequence[start_of_sequence:end_of_sequence]
+        end_of_sequence = start_of_seq + length_of_seq
+        peptide_sequence = sequence[start_of_seq:end_of_sequence]
         # Checks if extracted sequence matches projected length
-        if len(peptide_sequence) != end_of_sequence - start_of_sequence:
+        if len(peptide_sequence) != length_of_seq:
             print("Target peptide sequence length does not match its projected length")
             return
         # Writes sequence of target peptide to file
-        with open(target_seq_file_name, "w") as target_file:
+        with open(target_file_name, "w") as target_file:
             target_file.write(peptide_sequence)
-            print(f"Wrote target peptide sequence to {target_seq_file_name}")
+            print(f"Wrote target peptide sequence to {target_file_name}")
 
 input_file_name = "analyze-insulin/preproinsulin-seq.txt"
 cleaned_seq_file_name = "analyze-insulin/preproinsulin-seq-clean.txt"
@@ -41,7 +42,8 @@ length_of_cleaned_seq = 110
 
 ls_insulin_file_name = "analyze-insulin/lsinsulin-seq-clean.txt"
 start_of_sig_peptide_seq = 0
-end_of_sig_peptide_seq = 24
+length_of_sig_seq = 24
 
 get_cleaned_seq(input_file_name, cleaned_seq_file_name, length_of_cleaned_seq)
-extract_peptide_sequence(cleaned_seq_file_name, ls_insulin_file_name, start_of_sig_peptide_seq, end_of_sig_peptide_seq)
+# Extracting signal peptide sequence
+extract_peptide_sequence(cleaned_seq_file_name, ls_insulin_file_name, start_of_sig_peptide_seq, length_of_sig_seq)
