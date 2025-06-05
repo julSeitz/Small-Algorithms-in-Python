@@ -53,3 +53,9 @@ start_of_b_peptide_seq = 24
 length_of_b_seq = 30
 # Exctracting sequence of B insulin
 extract_peptide_sequence(cleaned_seq_file_name, b_insulin_file_name, start_of_b_peptide_seq, length_of_b_seq)
+
+c_insulin_file_name = "analyze-insulin/cinsulin-seq-clean.txt"
+start_of_c_peptide_seq = 55
+length_of_c_seq = 35
+# Exctracting sequence of C insulin
+extract_peptide_sequence(cleaned_seq_file_name, c_insulin_file_name, start_of_c_peptide_seq, length_of_c_seq)
