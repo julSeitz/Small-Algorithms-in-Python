@@ -1,7 +1,7 @@
 import re
 
 # Reads in unprocessed protein sequence from file
-with open('preproinsulin-seq.txt') as preproinsulin_seq_file:
+with open("preproinsulin-seq.txt") as preproinsulin_seq_file:
     preproinsulin_seq = preproinsulin_seq_file.read()
     result = re.findall(r"(([a-z]+\s*)+\n)", preproinsulin_seq)
     # Converting sequence into single string of lower case letters
