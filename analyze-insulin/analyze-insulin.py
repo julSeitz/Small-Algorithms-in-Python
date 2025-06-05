@@ -10,6 +10,9 @@ def get_cleaned_seq(input_file_name, cleaned_seq_file_name, length_of_cleaned_se
         for x in range (0, len(result)):
             cleaned_seq = cleaned_seq + result[x][0].strip()
         cleaned_seq = cleaned_seq.replace(" ", "")
+        if len(cleaned_seq) != length_of_cleaned_seq:
+            print("Cleaned sequence does not match projected length")
+            return
         # Writing cleaned sequence to file
         with open(cleaned_seq_file_name, "w") as cleaned_seq_file:
             cleaned_seq_file.write(cleaned_seq)
