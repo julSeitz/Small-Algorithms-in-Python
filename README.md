@@ -1,1 +1,1 @@
-# Small-Algorithms-in-Python
+# Small-Tasks-in-Python
