@@ -13,6 +13,7 @@ if result.returncode == 0:
     print("Created user " + user_name)
 else:
     print("An error occured when trying to create user " + user_name)
+    exit()
 
 result = subprocess.run(["echo {0}:{1} | sudo chpasswd".format(user_name, user_password)], shell=True, capture_output=True, text=True)
 if result.returncode == 0:
