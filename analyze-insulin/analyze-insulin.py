@@ -111,6 +111,7 @@ print(cleaned_prepro_insulin_seq)
 # Printing to console using concatenated stings inside the print function (one-liner):
 print("The sequence of human insulin, chain a: " + a_insulin_seq)
 
+# Complete sequence of human insulin protein composed of A-chain and B-chain
 insulin_seq = b_insulin_seq + a_insulin_seq
 
 # pH value influences the net-charge calculation
