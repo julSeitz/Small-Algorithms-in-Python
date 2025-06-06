@@ -86,3 +86,32 @@ print(cleaned_prepro_insulin_seq)
 
 # Printing to console using concatenated stings inside the print function (one-liner):
 print("The sequence of human insulin, chain a: " + a_insulin_seq)
+
+insulin_seq = b_insulin_seq + a_insulin_seq
+
+# Dictionary with the pKR value, the charge state of an amino acid.
+# Only the amino acids Y, C, K, H, R, D, and E are relevant for net-charge calculation
+pKR = {
+    "y" : 10.07,
+    "c" : 8.18,
+    "k" : 10.53,
+    "h" : 6.00,
+    "r" : 12.48,
+    "d" : 3.65,
+    "e" : 4.25
+}
+
+# Counts the occurance of each amino acid in the sequence that influences the net-charge calculation
+seqCount = ({x: float(insulin_seq.count(x)) for x in ["y", "c", "k", "h", "r", "d", "e"]})
+
+# pH value influences the net-charge calculation
+pH = 0
+# Iterating over pH values and printing the calculated net-charge for the human insulin protein
+while (pH <= 14):
+    netCharge = (
+        +(sum({x: ((seqCount[x]*(10**pKR[x]))/((10**pH)+(10**pKR[x]))) \
+        for x in ['k','h','r']}.values()))
+        -(sum({x: ((seqCount[x]*(10**pH))/((10**pH)+(10**pKR[x]))) \
+        for x in ['y','c','d','e']}.values())))
+    print("{0:.2f}".format(pH), netCharge)
+    pH += 1
