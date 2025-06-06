@@ -47,7 +47,7 @@ length_of_cleaned_seq = 110
 # Extracting and cleaning sequence
 prepro_seq = get_seq_from_file(input_file_name)
 cleaned_prepro_seq = get_cleaned_seq(prepro_seq, length_of_cleaned_seq)
-write_to_file(cleaned_seq_file_name, cleaned_prepro_seq)
+# write_to_file(cleaned_seq_file_name, cleaned_prepro_seq)
 
 ls_insulin_file_name = "analyze-insulin/lsinsulin-seq-clean.txt"
 start_of_sig_peptide_seq = 0
@@ -55,25 +55,25 @@ length_of_sig_seq = 24
 
 # Extracting signal peptide sequence
 sig_insulin_seq = extract_peptide_sequence(cleaned_prepro_seq, start_of_sig_peptide_seq, length_of_sig_seq)
-write_to_file(ls_insulin_file_name, sig_insulin_seq)
+# write_to_file(ls_insulin_file_name, sig_insulin_seq)
 
 b_insulin_file_name = "analyze-insulin/binsulin-seq-clean.txt"
 start_of_b_peptide_seq = 24
 length_of_b_seq = 30
 # Exctracting sequence of B insulin
 b_insulin_seq = extract_peptide_sequence(cleaned_prepro_seq, start_of_b_peptide_seq, length_of_b_seq)
-write_to_file(b_insulin_file_name, b_insulin_seq)
+# write_to_file(b_insulin_file_name, b_insulin_seq)
 
 c_insulin_file_name = "analyze-insulin/cinsulin-seq-clean.txt"
 start_of_c_peptide_seq = 54
 length_of_c_seq = 35
 # Exctracting sequence of C insulin
 c_insulin_seq = extract_peptide_sequence(cleaned_prepro_seq, start_of_c_peptide_seq, length_of_c_seq)
-write_to_file(c_insulin_file_name, c_insulin_seq)
+# write_to_file(c_insulin_file_name, c_insulin_seq)
 
 a_insulin_file_name = "analyze-insulin/ainsulin-seq-clean.txt"
 start_of_a_peptide_seq = 89
 length_of_a_seq = 21
 # Exctracting sequence of C insulin
 a_insulin_seq = extract_peptide_sequence(cleaned_prepro_seq, start_of_a_peptide_seq, length_of_a_seq)
-write_to_file(a_insulin_file_name, a_insulin_seq)
+# write_to_file(a_insulin_file_name, a_insulin_seq)
