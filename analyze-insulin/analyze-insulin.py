@@ -40,47 +40,47 @@ def write_to_file(target_file_name, seq):
         target_file.write(seq)
         print(f"Wrote target sequence to {target_file_name}")
 
-input_file_name = "analyze-insulin/preproinsulin-seq.txt"
-cleaned_seq_file_name = "analyze-insulin/preproinsulin-seq-clean.txt"
-length_of_cleaned_seq = 110
+prepro_insulin_file_name = "analyze-insulin/preproinsulin-seq.txt"
+cleaned_prepro_insulin_file_name = "analyze-insulin/preproinsulin-seq-clean.txt"
+cleaned_prepro_insulin_seq_length = 110
 
 # Extracting and cleaning sequence
-prepro_seq = get_seq_from_file(input_file_name)
-cleaned_prepro_seq = get_cleaned_seq(prepro_seq, length_of_cleaned_seq)
-# write_to_file(cleaned_seq_file_name, cleaned_prepro_seq)
+prepro_insulin_seq = get_seq_from_file(prepro_insulin_file_name)
+cleaned_prepro_insulin_seq = get_cleaned_seq(prepro_insulin_seq, cleaned_prepro_insulin_seq_length)
+# write_to_file(cleaned_prepro_insulin_file_name, cleaned_prepro_insulin_seq)
 
-ls_insulin_file_name = "analyze-insulin/lsinsulin-seq-clean.txt"
-start_of_sig_peptide_seq = 0
-length_of_sig_seq = 24
+sig_peptide_insulin_file_name = "analyze-insulin/sig-peptide-insulin-seq-clean.txt"
+sig_peptide_seq_start = 0
+sig_seq_length = 24
 
 # Extracting signal peptide sequence
-sig_insulin_seq = extract_peptide_sequence(cleaned_prepro_seq, start_of_sig_peptide_seq, length_of_sig_seq)
-# write_to_file(ls_insulin_file_name, sig_insulin_seq)
+sig_insulin_seq = extract_peptide_sequence(cleaned_prepro_insulin_seq, sig_peptide_seq_start, sig_seq_length)
+# write_to_file(sig_peptide_insulin_file_name, sig_insulin_seq)
 
 b_insulin_file_name = "analyze-insulin/binsulin-seq-clean.txt"
-start_of_b_peptide_seq = 24
-length_of_b_seq = 30
+b_insulin_seq_start = 24
+b_insulin_seq_length = 30
 # Exctracting sequence of B insulin
-b_insulin_seq = extract_peptide_sequence(cleaned_prepro_seq, start_of_b_peptide_seq, length_of_b_seq)
+b_insulin_seq = extract_peptide_sequence(cleaned_prepro_insulin_seq, b_insulin_seq_start, b_insulin_seq_length)
 # write_to_file(b_insulin_file_name, b_insulin_seq)
 
 c_insulin_file_name = "analyze-insulin/cinsulin-seq-clean.txt"
-start_of_c_peptide_seq = 54
-length_of_c_seq = 35
+c_insulin_seq_start = 54
+c_insulin_seq_length = 35
 # Exctracting sequence of C insulin
-c_insulin_seq = extract_peptide_sequence(cleaned_prepro_seq, start_of_c_peptide_seq, length_of_c_seq)
+c_insulin_seq = extract_peptide_sequence(cleaned_prepro_insulin_seq, c_insulin_seq_start, c_insulin_seq_length)
 # write_to_file(c_insulin_file_name, c_insulin_seq)
 
 a_insulin_file_name = "analyze-insulin/ainsulin-seq-clean.txt"
-start_of_a_peptide_seq = 89
-length_of_a_seq = 21
+a_insulin_seq_start = 89
+a_insulin_seq_length = 21
 # Exctracting sequence of C insulin
-a_insulin_seq = extract_peptide_sequence(cleaned_prepro_seq, start_of_a_peptide_seq, length_of_a_seq)
+a_insulin_seq = extract_peptide_sequence(cleaned_prepro_insulin_seq, a_insulin_seq_start, a_insulin_seq_length)
 # write_to_file(a_insulin_file_name, a_insulin_seq)
 
 # Printing "the sequence of human insulin" to console using successive print() commands:
 print("The sequence of human preproinsulin:")
-print(cleaned_prepro_seq)
+print(cleaned_prepro_insulin_seq)
 
 # Printing to console using concatenated stings inside the print function (one-liner):
 print("The sequence of human insulin, chain a: " + a_insulin_seq)
