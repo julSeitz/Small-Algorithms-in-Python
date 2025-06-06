@@ -6,9 +6,9 @@ def get_seq_from_file(source_file_name):
         seq = source_file.read()
         return seq
 
-def get_cleaned_seq(preproinsulin_seq, length_of_cleaned_seq):
+def get_cleaned_seq(raw_input_seq, length_of_cleaned_seq):
     """Cleans given sequence and returns it as sequence of lower letters without whitespaces or None."""
-    result = re.findall(r"(([a-z]+\s*)+\n)", preproinsulin_seq)
+    result = re.findall(r"(([a-z]+\s*)+\n)", raw_input_seq)
     # Converting sequence into single string of lower case letters
     cleaned_seq = ""
     for x in range (0, len(result)):
