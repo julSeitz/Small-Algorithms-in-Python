@@ -1,7 +1,7 @@
 import re
 
 def get_seq_from_file(source_file_name):
-    """Reads a sequence from a file with the given name"""
+    """Reads a sequence from a file with the given name and returns sequence"""
     with open(source_file_name) as source_file:
         seq = source_file.read()
         return seq
