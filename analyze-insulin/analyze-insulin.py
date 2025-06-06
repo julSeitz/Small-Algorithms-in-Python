@@ -1,5 +1,7 @@
 import re
 
+"""Small Tasks for analyzing the amino acid sequence of the human insulin protein. Sequence taken from https://www.ncbi.nlm.nih.gov/protein/AAA59172.1"""
+
 def get_seq_from_file(source_file_name):
     """Reads a sequence from a file with the given name and returns sequence"""
     with open(source_file_name) as source_file:
