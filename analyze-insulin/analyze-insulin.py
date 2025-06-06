@@ -77,3 +77,10 @@ length_of_a_seq = 21
 # Exctracting sequence of C insulin
 a_insulin_seq = extract_peptide_sequence(cleaned_prepro_seq, start_of_a_peptide_seq, length_of_a_seq)
 # write_to_file(a_insulin_file_name, a_insulin_seq)
+
+# Printing "the sequence of human insulin" to console using successive print() commands:
+print("The sequence of human preproinsulin:")
+print(cleaned_prepro_seq)
+
+# Printing to console using concatenated stings inside the print function (one-liner):
+print("The sequence of human insulin, chain a: " + a_insulin_seq)
