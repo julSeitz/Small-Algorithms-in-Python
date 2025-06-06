@@ -7,3 +7,4 @@ This repository serves as a collection of my solution to small programming chall
 1. Analyzing the amino acid sequence of the human insulin protein
 2. A solution to the common FizzBuzz exercise
 3. A script to create a new user on a linux system
+4. An implementation of the caesar cipher
